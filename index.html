@@ -7,6 +7,7 @@
 	<title>HANGMAN</title>
 
 </head>
+<h1> HANGMAN</h1>
 
 <body>
 	<div id="hangman.game">
@@ -14,103 +15,19 @@
 	</div>
 
 
-<script type="text/javascript">
+<script src="C:\Users\Susan Hooper\week-3-game\assets\javascript\game.js"></script>
 
-//words in our list 
-var wordList = ["monkey", "kangaroo", "armadillo"];
-//letters that the user has already picked
-var usedLetters = "";
-//breakdown of wordlist[x] into an array of individual letters
-var arrayLettersInWord = "";
-//the displayed version of what the user has guess or inital word display
-var displayWord = "";
-
-//var userWord = "";
-var guessCounter = 12;
-var wins = 0;
-var losses = 0;
-
-//NEED TO ADD CODE TO PICK WORD
-var selectWord = wordList[Math.floor(Math.random() * wordList.length)];
-//alert (selectWord);
-//display lines equaling letter count
-	for (x=0; x<selectWord.length; x++){
-		displayWord = displayWord + "_";
-		}
-	displayWord = displayWord.split("");
-	alert (displayWord);	
-	arrayLettersInWord = selectWord.split("");
-	alert (arrayLettersInWord);
-
-
-//for (guessCounter = 12; guessCounter<1; guessCounter--);	{
-//	alert(guessCounter);
-document.onkeyup = function(event){
-	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-//for (guessCounter = 12; guessCounter<1; guessCounter--);	{
-	alert(guessCounter);
-//	if (wordList.indexOf[userGuess]) || (usedLetters.indexOf[userGuess]) {
-	
-	
-	if (arrayLettersInWord.indexOf(userGuess)>=0){
-		alert(usedLetters.indexOf(userGuess));
-		var usedIdx = usedLetters.indexOf(userGuess);
-		if (usedIdx==-1) {
-		//arrayLength = usedLetters.length;
-		usedLetters = usedLetters + userGuess;			
-		var letterPos = arrayLettersInWord.indexOf(userGuess);
-		for (i=0; i<selectWord.length; i++){
-			if (arrayLettersInWord[i]== userGuess) {
-			displayWord[i] = userGuess;
-		}
-		//displayWord = displayWord + "_";
-		}
-		//displayWord[letterPos] = userGuess;
-		//alert(displayWord[0] + " " + displayWord[1]+ " " + displayWord[2]+ " " + displayWord[3]+ " " + displayWord[4]);
-		guessCounter--
-		alert(displayWord);
-		alert(usedLetters);
-		} else {
-		alert("Letter " +userGuess+ " has already been used.");
-	//	guessCounter++
-		}	
-	}
-	else {
-		
-		var usedIdx = usedLetters.indexOf(userGuess);
-		if (usedIdx==-1) {
-			guessCounter--
-		arrayLength = usedLetters.length;
-		usedLetters = usedLetters + userGuess;
-	    } 
-
-	}
-if (guessCounter == 0){
-	alert("gameover");
-}
-}
-//}
-//Play again?
-// Taking the tallies and displaying them in HTML
-//		var html = "<p>Press the letter Y to start playing</p>" +
-//		"<p>wins: " + 
-//		wins + 
-//		"</p>" +
-//		"<p>losses: " + 
-//		losses + 
-//		"</p>" +
-
-
-		// Placing the html into the game ID
-		//document.querySelector('#hangman.game').innerHTML=html;
-
-
+<script language="javascript">
+	init();
+	//game();
+	//playAgain();
 
 </script>
-
-
-
+<H2>Guesses left:</H2>
+<H2 id="guesscnt">12</H2>
+<br>
+<H2 id="displayword"></H2>
+ 
 </body>
 
 </html>
