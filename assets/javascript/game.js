@@ -1,7 +1,8 @@
+
 function init(){
 
 //words in our list 
-var wordList = ["monkey", "kangaroo", "armadillo"];
+var wordList = ["monkey", "kangaroo", "armadillo","giraffe","raccoon","orangutan"];
 //letters that the user has already picked
 var usedLetters = "";
 //breakdown of wordlist[x] into an array of individual letters
@@ -11,6 +12,7 @@ var displayWord = "";
 var guessCounter = 12;
 var wins = 0;
 var losses = 0;
+
 
 //CODE TO PICK RANDOM WORD
 var selectWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -30,20 +32,32 @@ document.onkeyup = function(event){
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 	//alert(guessCounter);
+var userGuesshtml = document.getElementById('Guess');userGuesshtml.innerHTML= userGuess;
 
 	if (arrayLettersInWord.indexOf(userGuess)>=0){
-		alert(usedLetters.indexOf(userGuess));
+		
 		var usedIdx = usedLetters.indexOf(userGuess);
 		if (usedIdx==-1) {
 		usedLetters = usedLetters + userGuess;			
 		var letterPos = arrayLettersInWord.indexOf(userGuess);
+		var matchedLetters=0;		
 		for (i=0; i<selectWord.length; i++){
 			if (arrayLettersInWord[i]== userGuess) {
 			displayWord[i] = userGuess;
+			//alert(displayWord);
+			//alert(arrayLettersInWord);
+			}	
+			if (displayWord[i] == arrayLettersInWord[i]) {
+					matchedLetters++
+					if (matchedLetters == selectWord.length){
+					wins++
+					var winshtml = document.getElementById('wins');winshtml.innerHTML=wins;
+					}
 			}
+			
 		}
-			alert(displayWord);
-			alert(usedLetters);
+//			alert(displayWord);
+//			alert(usedLetters);
 			guessCounter--
 			} else {
 		alert("Letter " +userGuess+ " has already been used.");
@@ -55,33 +69,20 @@ document.onkeyup = function(event){
 		if (usedIdx==-1) {
 			guessCounter--
 		arrayLength = usedLetters.length;
-		usedLetters = usedLetters + userGuess;
+		usedLetters +","+ userGuess;
 	    } 
 
 	}
 var displaywordhtml = document.getElementById('displayword');displaywordhtml.innerHTML=displayWord;
 var counterhtml = document.getElementById('guesscnt');counterhtml.innerHTML=guessCounter;
+//var letterUsedhtml = document.getElementById('usedLetters')letterUsed.innerHTML=usedLetters;
 //document.write(guessCounter);
 if (guessCounter == 0){
-	alert("gameover");
-}
+	losses ++;
 }
 //
+var losseshtml = document.getElementById('losses');losseshtml.innerHTML=losses;
+
 //
 }
-//Play again?
-// Taking the tallies and displaying them in HTML
-//function playAgain(){
-//	var html = "<p>Press the letter Y to start playing</p>" +
-//	"<p>wins: " + 
-//		wins + 
-//		"</p>" +
-//		"<p>losses: " + 
-//		losses + 
-//		"</p>" +
-
-
-		// Placing the html into the game ID
-//		document.querySelector('#hangman.game').innerHTML=html;
-
-//}
+}

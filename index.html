@@ -2,17 +2,25 @@
 
 <html>
 
-<head>
+<!-- Latest compiled and minified CSS -->
 
+<head>
+	<meta charset="UTF-8">
 	<title>HANGMAN</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+	
 
 </head>
-<h1> HANGMAN</h1>
 
 <body>
-	<div id="hangman.game">
-		<p> Guess the letters that make up this animal.</p>
-	</div>
+	
+		<div class="container">
+			<h1>HANGMAN</h1>
+			<h1>Guess the letters that make up this animal.</h1>
+		</div>
+	<header class="masthead"></header>
 
 
 <script src="C:\Users\Susan Hooper\week-3-game\assets\javascript\game.js"></script>
@@ -23,11 +31,31 @@
 	//playAgain();
 
 </script>
+<H2>You guessed letter: </H2>
+<H2 id="Guess"></H2>
+<br>
 <H2>Guesses left:</H2>
 <H2 id="guesscnt">12</H2>
 <br>
 <H2 id="displayword"></H2>
- 
+<br>
+<br>
+<H2> Letters already used: </H2>
+<!--<H2 id = "usedLetters"-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<H2>Number of games lost:</H2>
+<H2 id="losses"></H2>
+<H2>Number of games won:</H2>
+<H2 id ="wins"></H2>
+
 </body>
 
 </html>
