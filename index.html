@@ -26,7 +26,7 @@ var arrayLettersInWord = "";
 var displayWord = "";
 
 //var userWord = "";
-var guessCounter = 0;
+var guessCounter = 12;
 var wins = 0;
 var losses = 0;
 
@@ -42,16 +42,21 @@ var selectWord = wordList[Math.floor(Math.random() * wordList.length)];
 	arrayLettersInWord = selectWord.split("");
 	alert (arrayLettersInWord);
 
+
+//for (guessCounter = 12; guessCounter<1; guessCounter--);	{
+//	alert(guessCounter);
 document.onkeyup = function(event){
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-
+//for (guessCounter = 12; guessCounter<1; guessCounter--);	{
+	alert(guessCounter);
 //	if (wordList.indexOf[userGuess]) || (usedLetters.indexOf[userGuess]) {
-		
+	
+	
 	if (arrayLettersInWord.indexOf(userGuess)>=0){
 		alert(usedLetters.indexOf(userGuess));
 		var usedIdx = usedLetters.indexOf(userGuess);
-		if (usedIdx=-1) {
+		if (usedIdx==-1) {
 		//arrayLength = usedLetters.length;
 		usedLetters = usedLetters + userGuess;			
 		var letterPos = arrayLettersInWord.indexOf(userGuess);
@@ -63,19 +68,29 @@ document.onkeyup = function(event){
 		}
 		//displayWord[letterPos] = userGuess;
 		//alert(displayWord[0] + " " + displayWord[1]+ " " + displayWord[2]+ " " + displayWord[3]+ " " + displayWord[4]);
+		guessCounter--
 		alert(displayWord);
 		alert(usedLetters);
 		} else {
 		alert("Letter " +userGuess+ " has already been used.");
+	//	guessCounter++
 		}	
 	}
 	else {
-		guessCounter --;
+		
+		var usedIdx = usedLetters.indexOf(userGuess);
+		if (usedIdx==-1) {
+			guessCounter--
 		arrayLength = usedLetters.length;
 		usedLetters = usedLetters + userGuess;
-	}
-}
+	    } 
 
+	}
+if (guessCounter == 0){
+	alert("gameover");
+}
+}
+//}
 //Play again?
 // Taking the tallies and displaying them in HTML
 //		var html = "<p>Press the letter Y to start playing</p>" +
